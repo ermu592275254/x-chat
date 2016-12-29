@@ -22,9 +22,12 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
 	state: {
 		showDagger: false,
+		showHint: false,
 		height: document.documentElement.clientHeight,
 		showHeader: true,
-		showFooter: true
+		showFooter: true,
+		showList: true
+		
 	},
 	mutations: {
 		daggerCtrl (state) {
@@ -35,6 +38,12 @@ const store = new Vuex.Store({
 		},
 		footerCtrl (state) {
 			state.footerCtrl = !state.footerCtrl
+		},
+		hintCtrl (state) {
+			state.showHint = !state.showHint
+		},
+		listCtrl (state) {
+			state.showList = !state.showList
 		}
 	}
 })

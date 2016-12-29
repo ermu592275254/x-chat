@@ -1,12 +1,12 @@
 /*style reset*/
 html {
-  font-size: 10px;
+	font-size: 10px;
 }
 body {
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
-  font-family: "microsoft yahei",arial;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	font-family: "microsoft yahei",arial;
 }
 ul {
 	margin: 0;
@@ -21,12 +21,13 @@ a:hover {
 
 /*common style*/
 .header {
-  margin-bottom: 2rem;
-  width: 100%;
-  height: 5rem;
-  background-color: #ffde00;
-  border-bottom: 1px solid #ccc;
-  box-shadow: 0 .1rem .5rem #858585;
+	position: relative;
+	margin-bottom: 2rem;
+	width: 100%;
+	height: 5rem;
+	background-color: #ffde00;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 .1rem .5rem #858585;
 }
 .footer {
 	position: absolute;
@@ -63,6 +64,20 @@ a:hover {
 }
 .c-blue {
 	color: #1a1a84;
+}
+.c-white {
+	color: #fff;
+}
+
+/**************媒体查询*****************/
+@media screen and (max-width: 1000px) {
+    .list {
+        margin-left: -17%;
+    }
+    .rightpart {
+	position: relative;
+	width: 100%;
+    }
 }
 /**********login and register input style*************/
 .login-box {

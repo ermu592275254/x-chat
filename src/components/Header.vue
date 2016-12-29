@@ -1,5 +1,6 @@
 <template>
     <div class="header">
+    	<div class="munebutton" @click="listCtrl"><i class="glyphicon glyphicon-align-justify"></i></div>
 		<h3 class="title">
 			<svg t="1482129442901" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2196" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25">
 				<defs>
@@ -18,6 +19,11 @@ export default {
 		return {
 			subTitle: 'userLogin'
 		}
+	},
+	methods: {
+		listCtrl: function() {
+			this.$store.commit('listCtrl')
+		}
 	}
 }
 	
@@ -33,5 +39,13 @@ export default {
  	}
  	.icon {
  		vertical-align: middle;
+ 	}
+ 	.munebutton{
+ 		position: absolute;
+ 		left: 1rem;
+ 		height: 5rem;
+ 		line-height: 5rem;
+ 		font-size: 2rem;
+ 		cursor: pointer;
  	}
  </style>

@@ -6,11 +6,11 @@
 				<img src="../assets/logo2.jpg" alt="">
 				<p class="friendname"><a href="">jolly</a></p>
 				<p class="time">2016-01-01 12:00:30</p>
-				<a class="closebutton bg-red"><i class="glyphicon glyphicon-remove"></i></a>
+				<a class="closebutton bg-red" @click="hintCtrl"><i class="glyphicon glyphicon-remove"></i></a>
 			</li>
 		</ul>
 		<footerbar></footerbar>
-	</div>	
+	</div>
 </template>
 
  <script>
@@ -27,11 +27,10 @@ import Footerbar from './Footer.vue'
 			
 		}
  	},
- 	computed: { // 计算属性没办法在v-for里面使用 因为无法获取到index
- 		
- 	},
- 	filters: {
- 		
+ 	methods: {
+ 		hintCtrl: function () {
+ 			this.$store.commit('hintCtrl')
+ 		}
  	}
  }
  	
