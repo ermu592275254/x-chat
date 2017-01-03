@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-    	<div class="munebutton" @click="listCtrl"><i class="glyphicon glyphicon-align-justify"></i></div>
+    	<div class="munebutton" @click="listCtrl" v-if="this.$store.getters.doneWidth"><i class="glyphicon glyphicon-align-justify"></i></div>
 		<h3 class="title">
 			<svg t="1482129442901" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2196" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25">
 				<defs>

@@ -1,34 +1,38 @@
 <template>
-    <div class="list" v-bind:style="height">
-    	<ul>
-    		<li>
-    			<a class="mainmenu row no-m no-p" v-on:click="hideList('hideMList')">
-    				<i class="col-lg-3 no-m glyphicon glyphicon-th"></i>
-    				<span class="col-lg-9 no-m">Main Menu</span>
-				</a>
-    			<ul class="menulist">
-    				<li v-bind:class="{hideli: hideMList}" @click="goPage('/home/groupchat')">Chats Public</li>
-    				<li v-bind:class="{hideli: hideMList}" @click="goPage('/home')">Chats Joined</li>
-    				<li v-bind:class="{hideli: hideMList}" @click="goPage('/home/friend')">Friends</router-link></li>
-    				<li v-bind:class="{hideli: hideMList}">Notifications</li>
-    			</ul>
-    		</li>
-    		<li>
-    			<a class="mainmenu row no-m no-p" v-on:click="hideList('hideJList')">
-    				<i class="col-lg-3 no-m glyphicon glyphicon-th-list"></i>
-    				<span class="col-lg-9 no-m">Joined Chat</span>
-				</a>
-    			<ul class="menulist">
-    				<li v-bind:class="{hideli: hideJList}" @click="goPage('/home/chat')">
-    					<img class="usericon" src="../assets/logo.png" alt="">jolly baby
-    				</li>
-    				<li v-bind:class="{hideli: hideJList}" @click="goPage('/home/chat')">
-    					<img class="usericon" src="../assets/logo2.jpg" alt="">little piggish cat
-    				</li>
-    			</ul>
-    		</li>
-
-    	</ul>
+    <div class="list" v-bind:style="height" v-if="this.$store.state.cCtrl.showList">
+	    <transition	name="showul">
+	    	<div class="listul">
+				<ul>
+		    		<li>
+		    			<a class="mainmenu row no-m no-p" v-on:click="hideList('hideMList')">
+		    				<i class="col-lg-3 no-m glyphicon glyphicon-th"></i>
+		    				<span class="col-lg-9 no-m">Main Menu</span>
+						</a>
+		    			<ul class="menulist">
+		    				<li v-bind:class="{hideli: hideMList}" @click="goPage('/home/groupchat')">Chats Public</li>
+		    				<li v-bind:class="{hideli: hideMList}" @click="goPage('/home')">Chats Joined</li>
+		    				<li v-bind:class="{hideli: hideMList}" @click="goPage('/home/friend')">Friends</router-link></li>
+		    				<li v-bind:class="{hideli: hideMList}">Notifications</li>
+		    			</ul>
+		    		</li>
+		    		<li>
+		    			<a class="mainmenu row no-m no-p" v-on:click="hideList('hideJList')">
+		    				<i class="col-lg-3 no-m glyphicon glyphicon-th-list"></i>
+		    				<span class="col-lg-9 no-m">Joined Chat</span>
+						</a>
+		    			<ul class="menulist">
+		    				<li v-bind:class="{hideli: hideJList}" @click="goPage('/home/chat')">
+		    					<img class="usericon" src="/static/images/logo.png" alt="">jolly baby
+		    				</li>
+		    				<li v-bind:class="{hideli: hideJList}" @click="goPage('/home/chat')">
+		    					<img class="usericon" src="/static/images/logo2.jpg" alt="">little piggish cat
+		    				</li>
+		    			</ul>
+		    		</li>
+		    	</ul>    		
+	    	</div>
+	    </transition>
+    	<div class="listshadow" @click="hideList"></div>
     </div>
 </template>
 
@@ -45,8 +49,10 @@ export default {
 		hideList: function(value) {
 			if(value === 'hideMList'){
 				this.hideMList = !this.hideMList;
-			} else {
+			} else if(value === 'hideJList'){
 				this.hideJList = !this.hideJList;
+			} else {
+				this.$store.commit('listCtrl')
 			}
 		},
 		goPage: function(str) {
@@ -57,13 +63,6 @@ export default {
 </script>
 
 <style scoped>
-.list{
-	margin-right: -.1rem;
-	float: left;
-	width: 17%;
-	border-right: .1rem solid #ccc;
-	box-shadow: .1rem 0 .2rem #ccc; 
-}
 .mainmenu {
 	display: block;
 	width: 100%;
@@ -80,7 +79,14 @@ export default {
 	line-height: 4rem;
 	font-size: 1.8rem;
 }
-
+.listul {
+	float: left;
+	height: 100%;
+	width: 100%;
+	border-right: .1rem solid #ccc;
+	box-shadow: .1rem 0 .2rem #ccc; 
+	background-color: #fff;
+}
 li{
 	margin: 0;
 }

@@ -3,7 +3,7 @@
 	<headerbar></headerbar>
 		<ul class="grouplist">
 			<li v-for="(item, index) in groupList" v-bind:class="{bb : index === groupList.length - 1}">
-				<img src="../assets/logo.png" alt="">
+				<img src="/static/images/logo.png" alt="">
 				<p class="grouptitle"><span>[group]</span> {{item.name}} - {{index}}</p>
 				<p class="msgtime">{{ item.time | timeType }}</p>
 				<p class="msginfo txt-ellipsis">{{item.lastMsg.author}}: {{item.lastMsg.content}}</p>
@@ -27,17 +27,17 @@ import Footerbar from './Footer.vue'
  		return{
 			groupList: [
 			{	
-				imgUrl: '../assets/logo.png',
+				imgUrl: '../static/images/logo.png',
 				name: 'nodeChats',
 				time: new Date('2016-12-01 12:01:00'),
 				lastMsg:{author:'jolly',content:'you are lovely'}
 			},{
-				imgUrl: '/assets/logo2.jpg',
+				imgUrl: '../static/images/ogo2.jpg',
 				name: 'CSSChats',
 				time: new Date('2016-12-12 12:22:22'),
 				lastMsg:{author:'cat',content:'thank you'}
 			},{
-				imgUrl: '/assets/logo.png',				
+				imgUrl: '../static/images/logo.png',				
 				name: 'AngularChats',
 				time: new Date(),
 				lastMsg:{author:'dog',content:'exception'}
@@ -77,7 +77,7 @@ import Footerbar from './Footer.vue'
 	padding: 1.5rem 6rem 0 6rem;
 	min-height: 8.3rem;
 	border-bottom: none;
-	background: url('../assets/pikapika.jpg') no-repeat center center; 
+	background: url('/static/images/pikapika.jpg') no-repeat center center; 
 	background-size: contain;
 }
 .grouplist li p{

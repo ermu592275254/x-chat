@@ -1,14 +1,16 @@
 <template>
 	<div>
 		<transition name="listbar">
-		<listbar v-if="this.$store.state.showList"></listbar>
+			<listbar></listbar>
 		</transition>
 		<div class="rightpart" v-bind:style="height">
 	    	<router-view></router-view>
 		</div>
 		<transition name="daggerbar">
-    		<daggerbar v-if="this.$store.state.showDagger"></daggerbar>
-    		<hint v-if="this.$store.state.showHint"></hint>
+    		<daggerbar></daggerbar>
+    	</transition>
+    	<transition name="hinttst">
+    		<hint></hint>
     	</transition>
 	</div>
 </template>
@@ -31,7 +33,7 @@ export default {
 	data () {
 		return {
 			height: 'height:'+document.documentElement.clientHeight+'px',
-			showdagger: this.$store.state.showDagger
+			showdagger: this.$store.state.cCtrl.showDagger
 		}
 	},
 	methods: {
@@ -50,15 +52,22 @@ export default {
 	width: 83%;
 }
 .daggerbar-enter-active, .daggerbar-leave-active {
-  transition: opacity .5s;
+  	transition: opacity .5s;
 }
 .daggerbar-enter, .daggerbar-leave-active {
-  opacity: 0;
+  	opacity: 0;
 }
-.listbar-enter-active, .listbar-leave-active {
-  transition: margin-left .5s;
+.hinttst-enter-active {
+  	transition: all .3s ease;
 }
-.listbar-enter, .listbar-leave-active {
-  margin-left: 1rem;
+.hinttst-enter {
+  	transform: translateX(-100%);
+  	opacity: 0;
 }
+/*.listbar-enter-active {
+	transition: all .3s ease;
+}
+.listbar-enter {
+	margin-left: -100%;
+}*/
 </style>

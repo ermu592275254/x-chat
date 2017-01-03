@@ -1,7 +1,7 @@
 <template>
 	<div class="chat">
 		<div class="chatheader">
-			<img src="../assets/logo.png" alt=""><span>[Group] vueChat </span>
+			<img src="/static/images/logo.png" alt=""><span>[Group] vueChat </span>
 			<a>Account　<i class="glyphicon glyphicon-chevron-down"></i></a>
 			<ul class="options" v-if="false">
 				<li class="c-green bb">create group</li>
@@ -13,14 +13,14 @@
 		<div class="chatcontent" :style="minHeight">
 			<div class="chatbox">
 				<div>
-					<img class="userimg" src="../assets/pikapika.jpg" alt=""><span class="name">jolly</span><span class="time">2016-12-12 12:12:12</span>
+					<img class="userimg" src="/static/images/pikapika.jpg" alt=""><span class="name">jolly</span><span class="time">2016-12-12 12:12:12</span>
 				</div>
 				<p class="content">I'll still be able to break a motherfuckin' table</p>
 			</div>
 			<div class="hint"><span>little piggish cat join chats</span></div>
 			<div class="chatbox" style="margin-left: 40%">
 				<div>
-					<img class="userimg" src="../assets/yellowboy.jpg" alt=""><span class="name">jolly</span><span class="time">2016-12-12 12:12:12</span>
+					<img class="userimg" src="/static/images/yellowboy.jpg" alt=""><span class="name">jolly</span><span class="time">2016-12-12 12:12:12</span>
 				</div>
 				<p class="content">His palms are sweaty' knees weak' arms are heavy
 									There's vomit on his sweater already' mom's spaghetti
@@ -76,7 +76,7 @@
 export default {
 	data () {
 		return {
-			minHeight: 'height:' + this.$store.state.height + 'px'
+			minHeight: 'height:' + this.$store.state.cCtrl.height + 'px'
 		}
 	}
 }

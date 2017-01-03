@@ -1,5 +1,5 @@
 <template>
-    <div class="dagger" :style="height">
+    <div class="dagger" :style="height" v-if="this.$store.state.cCtrl.showDagger">
     	<div class="darkpart" @click="daggerCtrl"></div>
     	<div class="selectpart">
  			<ul>
@@ -16,7 +16,7 @@
 	export default {
 		data () {
 			return {
-				height: 'height:'+document.documentElement.clientHeight+'px'
+				height: 'height:' + this.$store.state.cCtrl.height + 'px'
 			}
 		},
 		methods: {

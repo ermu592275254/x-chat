@@ -1,12 +1,12 @@
 <template>
-    <div class="hint" :style="height">
+    <div class="hint" :style="height" v-if="this.$store.state.cCtrl.showHint">
     	<div class="darkpart" @click="hintCtrl"></div>
-    	<div class="hintBox">
+		<div class="hintBox">
     		<h2>Remove friend</h2>
     		<p>{{message}}</p>
     		<button class="btn btn-danger mb-7 hintbutton">DELETE</button>
     		<button class="btn btn-warning hintbutton" @click="hintCtrl">NOT NOW</button>
-    	</div>
+		</div>
     </div>
 </template>
 
