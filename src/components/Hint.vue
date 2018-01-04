@@ -1,12 +1,14 @@
 <template>
     <div class="hint" :style="height" v-if="this.$store.state.cCtrl.showHint">
-    	<div class="darkpart" @click="hintCtrl"></div>
-		<div class="hintBox">
-    		<h2>Remove friend</h2>
-    		<p>{{message}}</p>
-    		<button class="btn btn-danger mb-7 hintbutton">DELETE</button>
-    		<button class="btn btn-warning hintbutton" @click="hintCtrl">NOT NOW</button>
-		</div>
+        <div class="darkpart" @click="hintCtrl"></div>
+        <transition name="hint">
+            <div class="hintBox animated bounceInLeft">
+                <h4>Remove friend</h4>
+                <p>{{message}}</p>
+                <button class="btn btn-danger mb-7 hintbutton">DELETE</button>
+                <button class="btn btn-warning hintbutton" @click="hintCtrl">NOT NOW</button>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -24,9 +26,17 @@
 			}
 		}
 	}
+
 </script>
 
 <style scoped>
+.hint-enter-active {
+  	transition: all .3s ease;
+}
+.hint-enter {
+  	transform: translateX(-100%);
+  	opacity: 0;
+}
 .hint {
 	margin: 0;
 	position: relative;
@@ -56,7 +66,7 @@
 	opacity: 1;
 	z-index: 100;
 }
-h2 {
+h4 {
 	margin-bottom: 3rem;
 }
 p {
@@ -68,5 +78,19 @@ p {
 .hintbutton {
 	width: 10rem;
 }
+
+@media all and (max-width: 500px) {
+    .hintBox{
+        width: 80%!important;
+    }
+    .mb-7 {
+        margin-right: 2rem;
+    }
+    .hintbutton{
+        width: 6rem;
+        font-size: 12px;
+    }
+}
+
 
 </style>

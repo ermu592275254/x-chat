@@ -12,10 +12,12 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "moment": "^2.17.1",
     "vue": "^2.1.0",
     "vue-router": "^2.1.1",
+    "vue-socket.io": "^2.1.1-a",
     "vuex": "^2.1.1"
   },
   "devDependencies": {
@@ -68,7 +70,9 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
-    "webpack-merge": "^0.14.1"
+    "webpack-merge": "^0.14.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3"
   },
   "engines": {
     "node": ">= 4.0.0",

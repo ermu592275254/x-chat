@@ -83,7 +83,7 @@ module.exports = app.listen(port, function (err) {
 
   // when env is testing, don't need open it
   // 如果不是测试环境，自动打开浏览器并跳到我们的开发地址
-  if (process.env.NODE_ENV !== 'testing') {
-    opn(uri)
-  }
+  // if (process.env.NODE_ENV !== 'testing') {
+  //   opn(uri)
+  // }
 })

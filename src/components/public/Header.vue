@@ -1,0 +1,84 @@
+<template>
+    <div class="header">
+        <div class="munebutton" @click="listCtrl" v-if="this.$store.getters.doneWidth && showListIcon"><i
+                class="glyphicon glyphicon-align-justify"></i></div>
+        <div class="back-button" @click="back" v-show="showBack"><i class="glyphicon glyphicon-chevron-left"></i></div>
+        <h3 class="title">
+            <svg t="1482129442901" class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" p-id="2196" xmlns:xlink="http://www.w3.org/1999/xlink" width="25"
+                 height="25">
+                <defs>
+                </defs>
+                <path d="M512 224.01024c8.82688 0 15.99488 7.168 15.99488 15.99488s-7.20896 15.99488-15.99488 15.99488c-170.45504 0-320 89.72288-320 192 0 8.82688-7.168 15.99488-15.99488 15.99488s-15.99488-7.168-15.99488-15.99488c0-121.40544 161.1776-224.01024 352.01024-224.01024zM512 64c-282.78784 0-512 171.9296-512 384 0 132.05504 88.92416 248.50432 224.256 317.62432 0 0.86016-0.24576 1.4336-0.24576 2.37568 0 57.38496-42.84416 119.13216-61.70624 151.552 0.04096 0 0.06144 0 0.06144 0-1.49504 3.52256-2.37568 7.39328-2.37568 11.44832 0 15.99488 12.96384 28.99968 28.99968 28.99968 3.01056 0 8.2944-0.79872 8.15104-0.45056 100.00384-16.384 194.21184-108.25728 216.10496-134.88128 31.96928 4.7104 64.9216 7.33184 98.75456 7.33184 282.7264 0 512-171.9296 512-384s-229.25312-384-512-384zM512 768c-29.34784 0-59.45344-2.23232-89.47712-6.61504-3.11296-0.512-6.20544-0.67584-9.27744-0.67584-19.00544 0-37.21216 8.45824-49.47968 23.36768-13.70112 16.67072-52.67456 53.88288-98.7136 81.24416 12.47232-28.63104 22.24128-60.74368 22.91712-93.81888 0.18432-2.048 0.28672-4.13696 0.28672-5.89824 0-24.064-13.47584-46.03904-34.87744-56.99584-118.59968-60.53888-189.37856-157.98272-189.37856-260.608 0-176.45568 200.97024-320 448-320 246.96832 0 448 143.54432 448 320s-200.99072 320-448 320z"
+                      p-id="2197" fill="#1296db">
+                </path>
+            </svg>
+            X-chat {{subTitle}}
+        </h3>
+    </div>
+</template>
+
+<script>
+export default {
+	props: ['subTitle','showListIcon', 'showBack'],
+	methods: {
+		listCtrl: function() {
+			this.$store.commit('listCtrl')
+		},
+		back() {
+			this.$router.go(-1)
+		}
+	}
+}
+	
+
+</script>
+
+<style lang="less" scoped>
+ .header {
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 5rem;
+	background-color: #ffde00;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 .1rem .5rem #858585;
+	z-index: 99;
+	}
+ 	h3 {
+ 	    position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+ 		font-size: 1.6rem;
+ 		margin: 0;
+ 		text-align: center;
+ 		/*line-height: 5rem;*/
+ 		font-weight: bold;
+ 	}
+ 	.icon {
+ 		vertical-align: middle;
+ 	}
+ 	.munebutton{
+ 		position: absolute;
+ 		left: 1rem;
+ 		height: 5rem;
+ 		line-height: 5rem;
+ 		font-size: 2rem;
+ 		cursor: pointer;
+ 	}
+ 	.back-button {
+ 		position: absolute;
+ 		left: 1rem;
+ 		height: 5rem;
+ 		line-height: 5rem;
+ 		font-size: 2rem;
+ 		cursor: pointer;
+ 	}
+
+
+</style>

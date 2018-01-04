@@ -8,5 +8,11 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script src="./static/socket.io.js">
+    </script>
+    <script>
+        const socket = io('http://localhost:3000/');
+        if(socket)console.log('socket in link');
+    </script>
   </body>
 </html>
