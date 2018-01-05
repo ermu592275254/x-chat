@@ -1,8 +1,11 @@
 # x-chat
 
-> A Vue.js project
+> 一个基于vue和webSocket的聊天程序
+> 后台代码地址：https://github.com/ermu592275254/chat-socket
 
-## Build Setup
+## 开始
+
+请确保你已经开启了后台服务https://github.com/ermu592275254/chat-socket
 
 ``` bash
 # install dependencies
